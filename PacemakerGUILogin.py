@@ -8,7 +8,13 @@ from kivy.uix.textinput import TextInput
 class SayHello(App):
     def build(self):
         self.window = GridLayout()
-        #add widgets to window
+        self.window.cols = 1
+
+        #username
+        self.username = Label (text="Username")
+        self.window.add_widget(self.username)
+        self.password = Label (text="Password")
+        self.window.add_widget(self.password)
 
         return self.window
 
