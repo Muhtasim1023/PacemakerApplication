@@ -4,6 +4,8 @@ WindowManager:
         id: login
     CreateNewAccountWindow:
         id: newUser
+    MainWindow:
+        id: mainWindow
 
 
 #########################################################################
@@ -51,7 +53,7 @@ WindowManager:
             width: 200
             font_size: 18
             pos_hint: {"center_x": 0.5}
-            #password: True
+            password: True
 
         MDRoundFlatButton:
             text: "CREATE NEW ACCOUNT"
@@ -65,7 +67,10 @@ WindowManager:
             text: "LOGIN"
             font_size: 12
             pos_hint: {"center_x": 0.5}
-            on_press: app.loginUser()
+            on_release: 
+                app.loginUser()
+                app.root.current = "MainWindow"
+                root.manager.transition.direction = "left"
 
         Widget:
             size_hint_y: None
@@ -142,4 +147,12 @@ WindowManager:
             size_hint_y: None
             height: 15
 
+
+#########################################################################
+###################################### MAIN PAGE ########################
+<MainWindow>:
+    name: "MainWindow"
+
+    Label:
+        text: 'Hello world'
 
