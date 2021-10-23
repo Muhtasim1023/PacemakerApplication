@@ -3,7 +3,6 @@ from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 
-
 # Define our different screens
 class CreateNewAccountWindow(Screen):
     pass
@@ -21,12 +20,24 @@ class MainApp(MDApp):
         self.theme_cls.primary_palette = "DeepPurple"
         return Builder.load_file("GUIlogin.kv")
 
-    def logData(self):
-        username = self.root.ids.user.text 
-        password = self.root.ids.password.text
+    def loginUser(self):
+        
+        username = self.root.ids.login.user.text 
+        password = self.root.ids.login.password.text
 
         print("Username: ", username)
         print("Password: ", password)
+
+    def logNewUser(self):
+        
+        name = self.root.ids.newUser._name.text 
+        username = self.root.ids.newUser._user.text 
+        password = self.root.ids.newUser._pass.text 
+
+        print("Name: ", name)
+        print("Username: ", username)
+        print("Password: ", password)
+
 
 if __name__ == '__main__':
     MainApp().run()
