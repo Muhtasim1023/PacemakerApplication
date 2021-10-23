@@ -1,0 +1,142 @@
+
+WindowManager:
+    LoginWindow:
+        id: login
+    CreateNewAccountWindow:
+        id: newUser
+
+#########################################################################
+######################## LOGIN PAGE #####################################
+<LoginWindow>:
+    user:user
+    password:password
+    name: "LoginWindow"
+
+    MDCard:
+        size_hint: None, None
+        size: 300, 400
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 20
+        pading: 25
+        spacing: 15
+        orientation: "vertical"
+
+        MDLabel:
+            id: welcome_label
+            text: "PACEMAKER GUI"
+            font_size: 40
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Widget:
+            size_hint_y: None
+            height: 60
+        
+        MDTextFieldRound:
+            id: user
+            hint_text: "Username"
+            icon_right: "account"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDTextFieldRound:
+            id: password
+            hint_text: "Password"
+            icon_right: "eye-off"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+            #password: True
+
+        MDRoundFlatButton:
+            text: "CREATE NEW ACCOUNT"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                app.root.current = "CreateNewAccountWindow"
+                root.manager.transition.direction = "left"
+
+        MDRoundFlatButton:
+            text: "LOGIN"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_press: app.loginUser()
+
+        Widget:
+            size_hint_y: None
+            height: 15
+
+#########################################################################
+######################## CREATE NEW ACCOUNT PAGE ########################
+<CreateNewAccountWindow>:
+    _name:_name
+    _user:_user
+    _pass:_pass
+    name: "CreateNewAccountWindow"
+
+    MDCard:
+        size_hint: None, None
+        size: 300, 400
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 20
+        pading: 25
+        spacing: 15
+        orientation: "vertical"
+
+        MDLabel:
+            id: profile_label
+            text: "PROFILE"
+            font_size: 40
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Widget:
+            size_hint_y: None
+            height: 60
+
+        MDTextFieldRound:
+            id: _name
+            hint_text: "Name"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDTextFieldRound:
+            id: _user
+            hint_text: "Username"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDTextFieldRound:
+            id: _pass
+            hint_text: "Password"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDRoundFlatButton:
+            text: "Create New Account"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_press: app.logNewUser()
+
+        MDRoundFlatButton:
+            text: "Back"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                app.root.current = "LoginWindow"
+                root.manager.transition.direction = "right"
+
+        Widget:
+            size_hint_y: None
+            height: 15
