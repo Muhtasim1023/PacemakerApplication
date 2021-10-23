@@ -3,6 +3,10 @@ from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 
+import json
+
+sm = ScreenManager()
+
 # Define our different screens
 class CreateNewAccountWindow(Screen):
     pass
@@ -12,6 +16,7 @@ class LoginWindow(Screen):
 
 class WindowManager(ScreenManager):
     pass
+
 
 # Welcome page Screen
 class MainApp(MDApp):
@@ -25,18 +30,18 @@ class MainApp(MDApp):
         username = self.root.ids.login.user.text 
         password = self.root.ids.login.password.text
 
+        # Search Username and PassWord in savedUser.txt
         print("Username: ", username)
         print("Password: ", password)
 
     def logNewUser(self):
-        
         name = self.root.ids.newUser._name.text 
         username = self.root.ids.newUser._user.text 
         password = self.root.ids.newUser._pass.text 
+        data = {"Name: ": name, "Username: ": username, "Password: ": password }
 
-        print("Name: ", name)
-        print("Username: ", username)
-        print("Password: ", password)
+        with open('savedUser.txt', 'w') as f:
+            json.dump(data, f)
 
 
 if __name__ == '__main__':
