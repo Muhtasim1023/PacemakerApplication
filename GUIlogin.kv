@@ -1,14 +1,17 @@
-#Screen:
 
 WindowManager:
     LoginWindow:
+        id: login
     CreateNewAccountWindow:
+        id: newUser
 
-
-<LoginWindow>:
-    name: "LoginWindow"
 #########################################################################
 ######################## LOGIN PAGE #####################################
+<LoginWindow>:
+    user:user
+    password:password
+    name: "LoginWindow"
+
     MDCard:
         size_hint: None, None
         size: 300, 400
@@ -61,16 +64,20 @@ WindowManager:
             text: "LOGIN"
             font_size: 12
             pos_hint: {"center_x": 0.5}
-            on_press: app.logData()
+            on_press: app.loginUser()
 
         Widget:
             size_hint_y: None
             height: 15
 
-<CreateNewAccountWindow>:
-    name: "CreateNewAccountWindow"
 #########################################################################
 ######################## CREATE NEW ACCOUNT PAGE ########################
+<CreateNewAccountWindow>:
+    _name:_name
+    _user:_user
+    _pass:_pass
+    name: "CreateNewAccountWindow"
+
     MDCard:
         size_hint: None, None
         size: 300, 400
@@ -81,17 +88,55 @@ WindowManager:
         orientation: "vertical"
 
         MDLabel:
-            id: user_profile
+            id: profile_label
             text: "PROFILE"
             font_size: 40
             halign: 'center'
             size_hint_y: None
             height: self.texture_size[1]
 
+        Widget:
+            size_hint_y: None
+            height: 60
+
+        MDTextFieldRound:
+            id: _name
+            hint_text: "Name"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDTextFieldRound:
+            id: _user
+            hint_text: "Username"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDTextFieldRound:
+            id: _pass
+            hint_text: "Password"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
         MDRoundFlatButton:
-            text: "BACK"
+            text: "Create New Account"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_press: app.logNewUser()
+
+        MDRoundFlatButton:
+            text: "Back"
             font_size: 12
             pos_hint: {"center_x": 0.5}
             on_release: 
                 app.root.current = "LoginWindow"
                 root.manager.transition.direction = "right"
+
+        Widget:
+            size_hint_y: None
+            height: 15
