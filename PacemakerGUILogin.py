@@ -1,22 +1,18 @@
-from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.label import Label
-from kivy.uix.image import Image
-from kivy.uix.button import Button
-from kivy.uix.textinput import TextInput
+from kivymd.app import MDApp
+from kivy.lang import Builder
 
-class SayHello(App):
+
+class MainApp(MDApp):
     def build(self):
-        self.window = GridLayout()
-        self.window.cols = 1
+        self.theme_cls.theme_style = "Light"
+        self.theme_cls.primary_palette = "Pink"
+        return Builder.load_file("GUIlogin.kv")
+    def logger(self):
+        self.root.ids.welcome_label.text = f"Sup {self.root.ids.user.text}!"
+    
+    def clear(self):
+        self.root.ids.welcome_label.text = f"PACEMAKER GUI"
+        self.root.ids.user.text = ""
+        self.root.ids.user.password.text = ""
 
-        #username
-        self.username = Label (text="Username")
-        self.window.add_widget(self.username)
-        self.password = Label (text="Password")
-        self.window.add_widget(self.password)
-
-        return self.window
-
-if __name__ == "__main__":
-    SayHello().run()
+MainApp().run()
