@@ -1,7 +1,20 @@
 from kivymd.app import MDApp
+from kivy.uix.widget import Widget
 from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 
+# Define our different screens
+class CreateNewAccountWindow(Screen):
+    pass
+
+class LoginWindow(Screen):
+    pass
+
+class WindowManager(ScreenManager):
+    pass
+
+# Welcome page Screen
 class MainApp(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"
@@ -14,7 +27,6 @@ class MainApp(MDApp):
 
         print("Username: ", username)
         print("Password: ", password)
-    
-    def createnewUser(self):
-        pass
-MainApp().run()
+
+if __name__ == '__main__':
+    MainApp().run()
