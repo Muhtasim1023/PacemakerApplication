@@ -68,8 +68,7 @@ WindowManager:
             font_size: 12
             pos_hint: {"center_x": 0.5}
             on_release: 
-                app.loginUser()
-                app.root.current = "MainWindow"
+                app.root.current = app.loginUser()
                 root.manager.transition.direction = "left"
 
         Widget:
@@ -133,8 +132,9 @@ WindowManager:
             text: "Create New Account"
             font_size: 12
             pos_hint: {"center_x": 0.5}
-            on_press: app.logNewUser()
-
+            on_press: 
+                app.root.current = app.logNewUser()
+                root.manager.transition.direction = "left"
         MDRoundFlatButton:
             text: "Back"
             font_size: 12
@@ -154,5 +154,6 @@ WindowManager:
     name: "MainWindow"
 
     Label:
-        text: 'Hello world'
+        id: user_label
+        text: root.currentUser()
 
