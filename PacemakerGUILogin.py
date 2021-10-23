@@ -4,15 +4,17 @@ from kivy.lang import Builder
 
 class MainApp(MDApp):
     def build(self):
-        self.theme_cls.theme_style = "Light"
-        self.theme_cls.primary_palette = "Pink"
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "DeepPurple"
         return Builder.load_file("GUIlogin.kv")
-    def logger(self):
-        self.root.ids.welcome_label.text = f"Sup {self.root.ids.user.text}!"
-    
-    def clear(self):
-        self.root.ids.welcome_label.text = f"PACEMAKER GUI"
-        self.root.ids.user.text = ""
-        self.root.ids.user.password.text = ""
 
+    def logData(self):
+        username = self.root.ids.user.text 
+        password = self.root.ids.password.text
+
+        print("Username: ", username)
+        print("Password: ", password)
+    
+    def createnewUser(self):
+        pass
 MainApp().run()
