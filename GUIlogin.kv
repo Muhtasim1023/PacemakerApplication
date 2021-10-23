@@ -1,5 +1,14 @@
-Screen:
+#Screen:
 
+WindowManager:
+    LoginWindow:
+    CreateNewAccountWindow:
+
+
+<LoginWindow>:
+    name: "LoginWindow"
+#########################################################################
+######################## LOGIN PAGE #####################################
     MDCard:
         size_hint: None, None
         size: 300, 400
@@ -44,7 +53,9 @@ Screen:
             text: "CREATE NEW ACCOUNT"
             font_size: 12
             pos_hint: {"center_x": 0.5}
-            on_press: app.createNewUser()
+            on_release: 
+                app.root.current = "CreateNewAccountWindow"
+                root.manager.transition.direction = "left"
 
         MDRoundFlatButton:
             text: "LOGIN"
@@ -56,4 +67,31 @@ Screen:
             size_hint_y: None
             height: 15
 
+<CreateNewAccountWindow>:
+    name: "CreateNewAccountWindow"
+#########################################################################
+######################## CREATE NEW ACCOUNT PAGE ########################
+    MDCard:
+        size_hint: None, None
+        size: 300, 400
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 20
+        pading: 25
+        spacing: 15
+        orientation: "vertical"
 
+        MDLabel:
+            id: user_profile
+            text: "PROFILE"
+            font_size: 40
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        MDRoundFlatButton:
+            text: "BACK"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                app.root.current = "LoginWindow"
+                root.manager.transition.direction = "right"
