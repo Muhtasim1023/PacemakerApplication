@@ -35,11 +35,9 @@ class Devices:
     DeviceIdList = []
 
     def __init__(self):
-        
         self.DeviceIdList = []
         self.wmi = win32com.client.GetObject ("winmgmts:")
         for usb in self.wmi.InstancesOf ("Win32_USBHub"):
-            print(usb.Name)
             if usb.Name == "J-Link driver":# and usb.DeviceID not in self.DeviceIdList:
                 self.DeviceIdList.append(usb.DeviceID) # Only add Pacemaker devices
         

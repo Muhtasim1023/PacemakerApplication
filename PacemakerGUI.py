@@ -2,10 +2,72 @@ from kivymd.app import MDApp
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.core.window import Window
+from kivy.config import Config
+Config.set('graphics','resizable', False)
 
 from DeviceClass import Devices, Device
 
 import json
+
+
+class Parameter:
+    # Code = None
+    Id = None
+    Name = None
+    Label = None
+    Values = None
+    Value = None
+    # Int_Value = None
+    # Min = None
+    # Max = None
+    # Increment = None
+    Unit = None
+    UI_Type = None
+    Priority = None
+
+    def __init__(self, Id, Name, Label, Values, Value, Unit, UI_Type, Priority):
+        # , Values, Value, Int_Value, Min, Max, Increment, Units, UI_Type):
+        self.Id = Id
+        self.Name = Name
+        self.Label = Label
+        self.Values = Values
+        self.Value = Value
+        self.Unit = Unit
+        self.UI_Type = UI_Type
+        self.Priority = Priority
+
+    def Set_Value(self, val):
+        if  val == "-" or val in self.Values:
+            self.Value = val
+            print("{label} set to {value}".format(label = self.Label, value = val))
+            with open('SelectedParameters.json', 'w') as w:
+                dump_lst = []
+                for i in Param_Lst:
+                    dump_lst.append({"Id": i.Id, "Name": i.Name, "Label": i.Label, "Value": i.Value})
+                json.dump({"SelectedParameters": dump_lst}, w, indent = 2)
+            w.close()
+            return True
+        else:
+            print("Uable to set {label} to {value}".format(label = self.Label, value = val))
+            return False
+
+
+
+Param_Lst = [] # Holds all parameter objects read from JSON file
+# Read JSON file for parameter data (use DB later?)
+with open('Parameters.json', 'r') as myfile:
+    data=json.loads(myfile.read())
+    for i in data["Parameters"]:
+        Param_Lst.append(Parameter(**i))
+    Param_Lst.sort(key=lambda x: x.Priority)
+    myfile.close()
+
+
+
+
+
+
 
 # Define our different screens
 class CreateNewAccountWindow(Screen):
@@ -15,6 +77,23 @@ class LoginWindow(Screen):
     pass
 
 class MainWindow(Screen):
+    def Get_Params(self):
+        return Param_Lst
+    def Get_Param_Label(self, id):
+        if Param_Lst[id].Unit == "":
+            return Param_Lst[id].Label
+        else:
+            return Param_Lst[id].Label + " (" + Param_Lst[id].Unit + ")"
+    def Get_Param_Value(self, id):
+        return Param_Lst[id].Value
+    def Get_Param_Values(self, id):
+        return Param_Lst[id].Values
+    def Set_Param_Value(self, id, value):
+        Param_Lst[id].Set_Value(value)
+    def Clear_Params(self, spinners):
+        for i in Param_Lst:
+            i.Set_Value("-")
+            spinners[i.Id].text = "-"
     pass
 
 class WindowManager(ScreenManager):
@@ -26,6 +105,9 @@ class MainApp(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Green"
+        Window.size = (1080,720)
+        Window.minimum_width = 1080
+        Window.minimum_height = 720
         return Builder.load_file("GUIlogin.kv")
 
     def loginUser(self):
@@ -38,7 +120,7 @@ class MainApp(MDApp):
                 data = json.loads(r.read())
                 for i in data["UserInfo"]:
                     if i["Username"] == username and i["Password"] == password:
-                        self.root.ids.mainWindow.user_label.text = i["Name"]
+                        self.root.ids.mainWindow.user_label.text = "User: " + i["Name"]
                         self.root.ids.loginWindow.user.text = ""
                         self.root.ids.loginWindow.password.text = ""
                         return "MainWindow"

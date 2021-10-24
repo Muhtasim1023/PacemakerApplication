@@ -1,0 +1,85 @@
+{
+  "Parameters":[
+    {
+      "Id": 0,
+      "Name": "LRL",
+      "Label": "Lower Rate Limit",
+      "Values": ["30", "35", "40", "45", "50", "51", "52", "53", "54", "55", "60", "65", "70"],
+      "Value": "-",
+      "Unit": "ppm",
+      "UI_Type": "DropDown",
+      "Priority":"1"
+    },
+    {
+      "Id": 1,
+      "Name": "URL",
+      "Label": "Upper Rate Limit",
+      "Values": ["50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100"],
+      "Value": "-",
+      "Unit": "ppm",
+      "UI_Type": "DropDown",
+      "Priority":"2"
+    },
+    {
+      "Id": 2,
+      "Name": "AA",
+      "Label": "Atrial Amplitude",
+      "Values": ["Off", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0"],
+      "Value": "-",
+      "Unit": "V",
+      "UI_Type": "DropDown",
+      "Priority":"3"
+    },
+    {
+      "Id": 3,
+      "Name": "APW",
+      "Label": "Atrial Pulse Width",
+      "Values": ["0.05", "0.1", "0.2", "0.3", "0.4", "0.5"],
+      "Value": "-",
+      "Unit": "ms",
+      "UI_Type": "DropDown",
+      "Priority":"6"
+    },
+    {
+      "Id": 4,
+      "Name": "VA",
+      "Label": "Ventricular Amplitude",
+      "Values": ["Off", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0"],
+      "Value": "-",
+      "Unit": "V",
+      "UI_Type": "DropDown",
+      "Priority":"4"
+    },
+    {
+      "Id": 5,
+      "Name": "VPW",
+      "Label": "Ventricular Pulse Width",
+      "Values": ["0.05", "0.1", "0.2", "0.3", "0.4", "0.5"],
+      "Value": "-",
+      "Unit": "ms",
+      "UI_Type": "DropDown",
+      "Priority":"5"
+    },
+    {
+      "Id": 6,
+      "Name": "VRP",
+      "Label": "Ventricular Refractory Period",
+      "Values": ["150", "160", "170", "180", "190", "200"],
+      "Value": "-",
+      "Unit": "ms",
+      "UI_Type": "DropDown",
+      "Priority":"7"
+    },
+    {
+      "Id": 7,
+      "Name": "ARP",
+      "Label": "Artrial Refractory Period",
+      "Values": ["150", "160", "170", "180", "190", "200"],
+      "Value": "-",
+      "Unit": "ms",
+      "UI_Type": "DropDown",
+      "Priority":"8"
+    }
+  ]
+  
+}
