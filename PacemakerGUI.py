@@ -87,12 +87,14 @@ class MainApp(MDApp):
         All_Devices = Devices()
         if len(All_Devices.Get_All_Device_Ids()) == 0:
             # TO-DO -> Error Message
+            self.root.ids.mainWindow.deviceName.text = "No Pacemaker Devices Connected!"
             print("No Pacemaker Devices Connected")
         elif len(All_Devices.Get_All_Device_Ids()) == 1:
             # TO-DO -> Connected Message
             Current_Device = Device("", All_Devices.DeviceIdList[0])
             Current_Device.Get_Device_From_Json_By_Id()
             if Current_Device.Name != "" and Current_Device.Id != "":
+                self.root.ids.mainWindow.deviceName.text = Current_Device.Name
                 print("Pacemaker recognized")
                 print(Current_Device.Name)
                 print(Current_Device.Id)
@@ -104,6 +106,7 @@ class MainApp(MDApp):
                 Current_Device.Id = All_Devices.DeviceIdList[0]
                 Current_Device.Save_Device_To_Json()
                 # TO-DO -> Set this as main pacemaker (connect it)
+                self.root.ids.mainWindow.deviceName.text = Current_Device.Name
         else:
             # TO-DO -> UI To Pick Which Pacemaker
             # Decide what happens depending on recognizability of Pacemaker's
