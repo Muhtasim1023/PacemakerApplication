@@ -18,7 +18,6 @@ class MainWindow(Screen):
 class WindowManager(ScreenManager):
     pass
 
-
 # Welcome page Screen
 class MainApp(MDApp):
     
@@ -29,15 +28,16 @@ class MainApp(MDApp):
 
     def loginUser(self):
         
-        username = self.root.ids.login.user.text 
-        password = self.root.ids.login.password.text
+        username = self.root.ids.loginWindow.user.text 
+        password = self.root.ids.loginWindow.password.text
 
         with open('UserInfo.json', 'r') as r:
             data = json.loads(r.read())
             for i in data["UserInfo"]:
                 if i["Username"] == username and i["Password"] == password:
-                    self.root.ids.login.user.text = ""
-                    self.root.ids.login.password.text = ""
+                    self.root.ids.mainWindow.user_label.text = i["Name"]
+                    self.root.ids.loginWindow.user.text = ""
+                    self.root.ids.loginWindow.password.text = ""
                     return "MainWindow"
 
         return "LoginWindow"
