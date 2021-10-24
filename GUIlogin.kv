@@ -1,7 +1,7 @@
 
 WindowManager:
     LoginWindow:
-        id: login
+        id: loginWindow
     CreateNewAccountWindow:
         id: newUser
     MainWindow:
@@ -10,6 +10,7 @@ WindowManager:
 
 #########################################################################
 ######################## LOGIN PAGE #####################################
+
 <LoginWindow>:
     user:user
     password:password
@@ -77,6 +78,7 @@ WindowManager:
 
 #########################################################################
 ######################## CREATE NEW ACCOUNT PAGE ########################
+
 <CreateNewAccountWindow>:
     _name:_name
     _user:_user
@@ -147,13 +149,22 @@ WindowManager:
             size_hint_y: None
             height: 15
 
-
 #########################################################################
 ###################################### MAIN PAGE ########################
+
 <MainWindow>:
+    user_label:user_label
     name: "MainWindow"
 
     Label:
         id: user_label
-        text: root.currentUser()
+        text: ""
+
+    MDRoundFlatButton:
+        text: "Logout"
+        font_size: 12
+        pos_hint: {"center_x": 0.5}
+        on_release: 
+            app.root.current = "LoginWindow"
+            root.manager.transition.direction = "right"
 
