@@ -94,8 +94,8 @@ WindowManager:
 
         MDLabel:
             id: profile_label
-            text: "PROFILE"
-            font_size: 40
+            text: "CREATE NEW USER"
+            font_size: 25
             halign: 'center'
             size_hint_y: None
             height: self.texture_size[1]
@@ -184,8 +184,21 @@ WindowManager:
             size_hint_y: None
             height: self.texture_size[1]
 
+        Widget:
+            size_hint_y: None
+            height: 30
+
         MDLabel:
             id: deviceName
+            text: "      "
+            font_size: 20
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Widget:
+            size_hint_y: None
+            height: 30
 
         MDRoundFlatButton:
             text: "Connect"
