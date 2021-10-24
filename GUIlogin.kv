@@ -172,9 +172,13 @@ WindowManager:
                 orientation: "horizontal"
                 size_hint: (1, 0.1)
 
+                Widget:
+                    size_hint_x: None
+                    width: 335
+
                 MDLabel:
                     id: profile_Welcome
-                    text: "WELCOME"
+                    text: "MAIN PAGE"
                     font_size: 40
                     halign: 'center'
                     size_hint_y: 1
@@ -193,36 +197,46 @@ WindowManager:
                 size_hint: (1, 0.1)
 
                 Widget:
-                    size_hint_y: 0.1
-                    height: 30
+                    size_hint_x: None
+                    width: 80
 
                 MDLabel:
                     id: deviceName
                     text: "      "
                     font_size: 20
-                    halign: 'center'
+                    #halign: 'left'
                     size_hint_y: 1
                     height: self.texture_size[1]
 
                 Widget:
-                    size_hint_y: 0.1
-                    height: 30
+                    size_hint_x: None
+                    width: 60
 
                 MDRoundFlatButton:
                     text: "Connect"
                     font_size: 12
+                    halign: 'center'
                     pos_hint: {"center_x": 0.5}
                     on_release: 
                         app.Connect_To_Device()
                         root.manager.transition.direction = "left"
 
+                Widget:
+                    size_hint_x: None
+                    width: 15
+
                 MDRoundFlatButton:
                     text: "Logout"
                     font_size: 12
+                    halign: 'center'
                     pos_hint: {"center_x": 0.5}
                     on_release: 
                         app.root.current = "LoginWindow"
                         root.manager.transition.direction = "right"
+
+                Widget:
+                    size_hint_x: None
+                    width: 40
 
             BoxLayout:
                 orientation: "horizontal"
@@ -236,22 +250,31 @@ WindowManager:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
+                        MDLabel:
                             id: label_id0
                             size_hint: (0.5, 1)
                             # size: 100, 40
-                            halign: "left"
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(0)
                             # font_size: 26
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+                        
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id0
                             size_hint : (0.5, 0.5)
                             # size: 100, 40
+                            halign: "left"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Value(0)
                             values: root.Get_Param_Values(0)
@@ -259,20 +282,33 @@ WindowManager:
                             on_text: root.Set_Param_Value(0, spinner_id0.text)
                             max_height: 10
 
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
                     BoxLayout:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
+                        MDLabel:
                             id: label_id1
                             size_hint : (0.5, 1)
                             # size: 100, 40
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(1)
                             # font_size: 26
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id1
@@ -285,20 +321,33 @@ WindowManager:
                             on_text: root.Set_Param_Value(1, spinner_id1.text)
                             max_height: 10
 
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
                     BoxLayout:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
+                        MDLabel:
                             id: label_id2
                             size_hint : (0.5, 1)
                             # size: 100, 40
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(2)
                             # font_size: 26
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id2
@@ -311,20 +360,33 @@ WindowManager:
                             on_text: root.Set_Param_Value(2, spinner_id2.text)
                             max_height: 10
 
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
                     BoxLayout:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
+                        MDLabel:
                             id: label_id3
                             size_hint : (0.5, 0.5)
                             # size: 100, 40
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(3)
                             # font_size: 26
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id3
@@ -336,22 +398,35 @@ WindowManager:
                             # font_size : 21
                             on_text: root.Set_Param_Value(3, spinner_id3.text)
                             max_height: 10
+                        
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                     BoxLayout:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+                        
+
+                        MDLabel:
                             id: label_id4
                             size_hint : (0.5, 0.5)
                             # size: 100, 40
-                            halign: "left"
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(4)
                             # font_size: 26
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+                        
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id4
@@ -363,6 +438,10 @@ WindowManager:
                             # font_size : 21
                             on_text: root.Set_Param_Value(4, spinner_id4.text)
                             max_height: 10
+                        
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                 BoxLayout:
                     orientation: "vertical"
@@ -372,16 +451,21 @@ WindowManager:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        MDLabel:
                             id: label_id5
                             size_hint : (0.5, 1)
                             # size: 100, 40
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(5)
                             # font_size: 26
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+                        
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id5
@@ -394,14 +478,19 @@ WindowManager:
                             on_text: root.Set_Param_Value(5, spinner_id5.text)
                             max_height: 10
 
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
                     BoxLayout:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        MDLabel:
                             id: label_id6
                             size_hint : (0.5, 1)
                             # size: 100, 40
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(6)
                             # font_size: 26
@@ -411,6 +500,10 @@ WindowManager:
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+                        
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id6
@@ -422,21 +515,30 @@ WindowManager:
                             # font_size : 21
                             on_text: root.Set_Param_Value(6, spinner_id6.text)
                             max_height: 10
+                        
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                     BoxLayout:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        MDLabel:
                             id: label_id7
                             size_hint : (0.5, 1)
                             # size: 100, 40
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(7)
                             # font_size: 26
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id7
@@ -449,20 +551,29 @@ WindowManager:
                             on_text: root.Set_Param_Value(7, spinner_id7.text)
                             max_height: 10
 
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
                     BoxLayout:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        MDLabel:
                             id: label_id8
                             size_hint : (0.5, 1)
                             # size: 100, 40
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             text: root.Get_Param_Label(8)
                             # font_size: 26
                             size_hint_y: None
                             text_size: self.width, None
                             height: self.texture_size[1]
+                        
+                        Widget:
+                            size_hint_x: None
+                            width: 40
 
                         Spinner:
                             id: spinner_id8
@@ -475,14 +586,21 @@ WindowManager:
                             on_text: root.Set_Param_Value(8, spinner_id8.text)
                             max_height: 10
 
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
+                        
+
                     BoxLayout:
                         orientation: "horizontal"
                         size_hint: (1, 0.20)
 
-                        Label:
+                        MDLabel:
                             id: label_id9
                             size_hint : (0.5, 1)
                             # size: 100, 40
+                            halign: "center"
                             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                             # text: root.Get_Param_Label(8)
                             # font_size: 26
@@ -490,12 +608,28 @@ WindowManager:
                             text_size: self.width, None
                             height: self.texture_size[1]
 
-                        Button:
+                        MDRoundFlatButton:
                             id: spinner_id9
-                            size_hint : (0.5, 0.5)
+                            #size_hint : (0.5, 0.5)
                             # size: 100, 40
-                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5}
                             text: "Clear Parameters"
                             on_release: root.Clear_Params([spinner_id0, spinner_id1, spinner_id2, spinner_id3, spinner_id4, spinner_id5, spinner_id6, spinner_id7, spinner_id8])
                             # font_size : 21
-                            max_height: 10
+
+                        Widget:
+                            size_hint_x: None
+                            width: 40
+
+                    Widget:    
+                        size_hint_y: None
+                        height: 30
+
+
+
+
+
+                            
+
+                    
