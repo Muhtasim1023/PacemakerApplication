@@ -1,0 +1,58 @@
+{
+  "SelectedParameters": [
+    {
+      "Id": 0,
+      "Name": "LRL",
+      "Label": "Lower Rate Limit",
+      "Value": "-"
+    },
+    {
+      "Id": 1,
+      "Name": "URL",
+      "Label": "Upper Rate Limit",
+      "Value": "-"
+    },
+    {
+      "Id": 2,
+      "Name": "AA",
+      "Label": "Atrial Amplitude",
+      "Value": "-"
+    },
+    {
+      "Id": 4,
+      "Name": "VA",
+      "Label": "Ventricular Amplitude",
+      "Value": "-"
+    },
+    {
+      "Id": 5,
+      "Name": "VPW",
+      "Label": "Ventricular Pulse Width",
+      "Value": "-"
+    },
+    {
+      "Id": 3,
+      "Name": "APW",
+      "Label": "Atrial Pulse Width",
+      "Value": "-"
+    },
+    {
+      "Id": 6,
+      "Name": "VRP",
+      "Label": "Ventricular Refractory Period",
+      "Value": "-"
+    },
+    {
+      "Id": 7,
+      "Name": "ARP",
+      "Label": "Artrial Refractory Period",
+      "Value": "-"
+    },
+    {
+      "Id": 8,
+      "Name": "PM",
+      "Label": "Pacing Mode",
+      "Value": "-"
+    }
+  ]
+}
