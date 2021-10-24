@@ -9,7 +9,6 @@ WindowManager:
 
 #########################################################################
 ######################## LOGIN PAGE #####################################
-
 <LoginWindow>:
     user:user
     password:password
@@ -156,24 +155,55 @@ WindowManager:
     deviceName: deviceName
     name: "MainWindow"
 
-    Label:
-        id: user_label
-        text: ""
-
-    MDRoundFlatButton:
-        text: "Logout"
-        font_size: 12
-        pos_hint: {"center_x": 0.5}
-        on_release: 
-            app.root.current = "LoginWindow"
-            root.manager.transition.direction = "right"
-
-    Label:
-        id: deviceName
-
-    Button:
-        text: "Connect"
-        font_size: 12
-        on_release: app.Connect_To_Device()
-        size: 75, 50
+    MDCard:
         size_hint: None, None
+        size: 900, 600
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 20
+        pading: 25
+        spacing: 15
+        orientation: "vertical"
+
+        Widget:
+            size_hint_y: None
+            height: 30
+
+        MDLabel:
+            id: profile_Welcome
+            text: "WELCUMs!"
+            font_size: 40
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        MDLabel:
+            id: user_label
+            text: ""
+            font_size: 20
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        MDLabel:
+            id: deviceName
+
+        MDRoundFlatButton:
+            text: "Connect"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                app.Connect_To_Device()
+                root.manager.transition.direction = "left"
+
+        MDRoundFlatButton:
+            text: "Logout"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_release: 
+                app.root.current = "LoginWindow"
+                root.manager.transition.direction = "right"
+
+        Widget:
+            size_hint_y: None
+            height: 30
+        
