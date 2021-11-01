@@ -132,7 +132,7 @@ class MainApp(MDApp):
     def logNewUser(self):
 
         name = self.root.ids.newUser._name.text 
-        username = self.root.ids.newUser._user.text 
+        username = self.root.ids.newUser._user.text
         password = self.root.ids.newUser._pass.text
 
         database = []
